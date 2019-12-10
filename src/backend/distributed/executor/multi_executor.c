@@ -636,6 +636,7 @@ IsLocalReferenceTableJoinPlan(PlannedStmt *plan)
 		RangeTblEntry *rangeTableEntry = (RangeTblEntry *) lfirst(rangeTableCell);
 		bool onlySearchPath = false;
 
+<<<<<<< HEAD
 		/*
 		 * Planner's IsLocalReferenceTableJoin() doesn't allow planning functions
 		 * in FROM clause locally. Early exit. We cannot use Assert() here since
@@ -646,11 +647,14 @@ IsLocalReferenceTableJoinPlan(PlannedStmt *plan)
 			return false;
 		}
 
+=======
+>>>>>>> e3e174f... Fix the way we check for local/reference table joins in the executor
 		if (rangeTableEntry->rtekind != RTE_RELATION)
 		{
 			continue;
 		}
 
+<<<<<<< HEAD
 		/*
 		 * Planner's IsLocalReferenceTableJoin() doesn't allow planning reference
 		 * table and view join locally. Early exit. We cannot use Assert() here
@@ -661,6 +665,8 @@ IsLocalReferenceTableJoinPlan(PlannedStmt *plan)
 			return false;
 		}
 
+=======
+>>>>>>> e3e174f... Fix the way we check for local/reference table joins in the executor
 		if (RelationIsAKnownShard(rangeTableEntry->relid, onlySearchPath))
 		{
 			/*

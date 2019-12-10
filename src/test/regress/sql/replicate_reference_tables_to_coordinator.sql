@@ -173,6 +173,10 @@ $Q$);
 ALTER TABLE squares DROP COLUMN b;
 
 
+-- verify that we can drop columns from reference tables replicated to the coordinator
+-- see https://github.com/citusdata/citus/issues/3279
+ALTER TABLE squares DROP COLUMN b;
+
 -- clean-up
 SET client_min_messages TO ERROR;
 DROP SCHEMA replicate_ref_to_coordinator CASCADE;
