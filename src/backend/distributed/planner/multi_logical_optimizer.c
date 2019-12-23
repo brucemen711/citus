@@ -2225,10 +2225,10 @@ ProcessTargetListForWorkerQuery(List *targetEntryList,
 		workerAggContext->createGroupByClause = false;
 
 		/*
-		 * If the query has a window function, we currently assuem it's safe to push
+		 * If the query has a window function, we currently assume it's safe to push
 		 * down the target list.
 		 *
-		 * If there are aggregates and without a GROUP BY on the distribution column
+		 * If there are aggregates without a GROUP BY on the distribution column
 		 * then the results of those aggregates need to be combined on the coordinator.
 		 * In that case we rewrite the expressions using WorkerAggregateWalker.
 		 */
