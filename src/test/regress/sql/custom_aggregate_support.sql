@@ -20,6 +20,7 @@ WHERE name = 'hll'
 \c - - - :master_port
 
 SET citus.shard_count TO 4;
+set citus.coordinator_aggregation_strategy to 'disabled';
 
 CREATE TABLE raw_table (day date, user_id int);
 CREATE TABLE daily_uniques(day date, unique_users hll);
@@ -167,6 +168,8 @@ WHERE name = 'topn'
 :create_topn;
 
 \c - - - :master_port
+set citus.coordinator_aggregation_strategy to 'disabled';
+
 CREATE TABLE customer_reviews (day date, user_id int, review int);
 CREATE TABLE popular_reviewer(day date, reviewers jsonb);
 
